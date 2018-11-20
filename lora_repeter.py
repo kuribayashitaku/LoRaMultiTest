@@ -33,23 +33,33 @@ class LoRaRepeterClass:
         time.sleep(0.1)
         self.sendDevice.cmd_lora('z')
 
-        "ES920LRデータ中継器メソッド"
+     #ES920LRデータ中継器-受信メソッド
         def lora_repeter_recv(self):
             while True:
-                try:
-                    self.sendDevice.device.inWaiting() > 0:
-                    line = self.sendDevice.device.readline()
-                    line = line.decode('utf-8')
-                except Exception as e:
-                    print(e)
-                    continue
-                print(line)
-        return line:
+                if self.sendDevice.device.inWaiting() > 0
+                    try:
+                        line = self.sendDevice.device.readline()
+                        line = line.decode('utf-8')
+                    except Exception as e
+                        print(e)
+                        continue
+                    print(line)
+            return line
 
         def lora_repeter_send(self):
             while True:
                 panid = input('送信先PANID')
                 addid = input('送信先アドレス')
                 data = lora_reptert_recv()
-                print('<--SEND--[' + panid)
-                try:
+                print('<--SEND--[' + panid + addid + data + ']')
+                seld.sendDevice.cmd_lora(pandid + addid + data)
+                while self.sendDevice.device.inWaiting() == 0:
+                    time.sleep(1)
+                while self.sendDevice.device.inWaiting() > 0:
+                    try:
+                        line = self.sendDevice.device.inWaiting() > 0
+                        line = ine.decode('utf-8')
+                    except Exception as e
+                        print(e)
+                        continue
+                    plint(line)
