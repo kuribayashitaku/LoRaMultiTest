@@ -1,0 +1,55 @@
+import time
+import sys
+
+
+class LoRaRepeterClass:
+    """
+        LoRa中継器用クラス
+    """
+
+    def __init__(self, serial_device, set_flag, config):
+        self.sendDevice = serial_device
+        self.set_flag = set_flag
+        self.config = config
+        self.sendDevice.cmd_lora('1')
+        time.sleep(0.1)
+        if self.set_flag == 'on':
+            command = ['b', 'c', 'd', 'e', 'f', 'g']
+            for cmd, conf in zip(command, self.config):
+                self.sendDevice.cmd_lora(cmd)
+                time.sleep(0.1)
+                self.sendDevice.cmd_lora(conf)
+                time.sleep(0.1)
+        else:
+            self.sendDevice.cmd_lora('d')
+            time.sleep(0.1)
+            self.sendDevice.cmd_lora('14')
+            time.sleep(0.1)
+            self.sendDevice.cmd_lora('g')
+            time.sleep(0.1)
+            self.sendDevice.cmd_lora('0001')
+            time.sleep(0.1)
+        self.sendDevice.cmd_lora('y')
+        time.sleep(0.1)
+        self.sendDevice.cmd_lora('z')
+
+        "ES920LRデータ中継器メソッド"
+        def lora_repeter_recv(self):
+            while True:
+                try:
+                    self.sendDevice.device.inWaiting() > 0:
+                    line = self.sendDevice.device.readline()
+                    line = line.decode('utf-8')
+                except Exception as e:
+                    print(e)
+                    continue
+                print(line)
+        return line:
+
+        def lora_repeter_send(self):
+            while True:
+                panid = input('送信先PANID')
+                addid = input('送信先アドレス')
+                data = lora_reptert_recv()
+                print('<--SEND--[' + panid)
+                try:
