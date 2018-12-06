@@ -28,7 +28,7 @@ def main(argc, argv):
         channel = input('channel:')
         panid = input('panID  :')
         ownid = input('ownID  :')
-        dstiid = input('dstID  :')
+        dstid = input('dstID  :')
         config = [bw, sf, channel, panid, ownid, dstid]
 
     if argv[1] == 'send':
