@@ -36,7 +36,7 @@ class LoRaRepeterClass:
      #ES920LRデータ中継器-受信メソッド
         def lora_repeater_recv(self):
             while True:
-                if self.sendDevice.device.inWaiting() > 0
+                if self.sendDevice.device.inWaiting() > 0:
                     try:
                         line = self.sendDevice.device.readline()
                         line = line.decode('utf-8')
