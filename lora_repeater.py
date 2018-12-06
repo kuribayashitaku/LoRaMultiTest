@@ -63,4 +63,4 @@ class LoraRepeaterClass:
                     except Exception as e:
                         print(e)
                         continue
-                    plint(line)
+                    print(line)
