@@ -2,7 +2,7 @@ import time
 import sys
 
 
-class LoRaRepeaterClass:
+class LoraRepeaterClass:
     """
         LoRa中継器用クラス
     """
