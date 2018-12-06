@@ -3,7 +3,7 @@ import sys
 import lora_send
 import lora_recv
 import lora_setting
-
+import lora_repeater
 
 def main(argc, argv):
     lora_device_name = "/dev/ttyS0"  # ES920LRデバイス名
@@ -11,12 +11,12 @@ def main(argc, argv):
     set_flag = None
     config = []
     if argc < 3:
-        print('Usage: python %s [send | repeter | recv] [set | unset]' % (argv[0]))
+        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
         print('       [send | repeter | recv] ... mode select')
         print('       [set | unset] ... mode select')
         sys.exit()
     if argv[1] != 'send' and argv[1] != 'recv' and argv[2] != 'set' and argv[2] != 'unset':
-        print('Usage: python %s [send | repeter | recv] [set | unset]' % (argv[0]))
+        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
         print('       [send | repeter | recv] ... mode select')
         print('       [set | unset] ... mode select')
         sys.exit()
@@ -28,14 +28,14 @@ def main(argc, argv):
         channel = input('channel:')
         panid = input('panID  :')
         ownid = input('ownID  :')
-        dstid = input('dstID  :')
+        dstiid = input('dstID  :')
         config = [bw, sf, channel, panid, ownid, dstid]
 
     if argv[1] == 'send':
         lr_send = lora_send.LoraSendClass(lora_device, set_flag, config)
         lr_send.lora_send()
     elif argv[1] == 'repeter':
-        lr_repeter = lora_repter.LoRaRepeterClass(lora_device, set_flag, config)
+        lr_repeter = lora_repeater.LoRaRepeaterClass(lora_device, set_flag, config)
         lr_send.lora_repeter_recv()
 
     elif argv[1] == 'recv':
