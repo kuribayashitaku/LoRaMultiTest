@@ -36,7 +36,7 @@ def main(argc, argv):
         lr_send.lora_send()
     elif argv[1] == 'repeter':
         lr_repeter = lora_repeater.LoRaRepeaterClass(lora_device, set_flag, config)
-        lr_send.lora_repeter_recv()
+        lr_send.lora_repeater_recv()
 
     elif argv[1] == 'recv':
         lr_recv = lora_recv.LoraRecvClass(lora_device, set_flag, config)
