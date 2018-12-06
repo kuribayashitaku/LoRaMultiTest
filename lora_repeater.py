@@ -40,7 +40,7 @@ class LoRaRepeterClass:
                     try:
                         line = self.sendDevice.device.readline()
                         line = line.decode('utf-8')
-                    except Exception as e
+                    except Exception as e:
                         print(e)
                         continue
                     print(line)
@@ -60,7 +60,7 @@ class LoRaRepeterClass:
                     try:
                         line = self.sendDevice.device.inWaiting() > 0
                         line = ine.decode('utf-8')
-                    except Exception as e
+                    except Exception as e:
                         print(e)
                         continue
                     plint(line)
