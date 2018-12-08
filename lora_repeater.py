@@ -47,12 +47,12 @@ class LoraRepeaterClass:
                 self.sendDevice.cmd_lora(line)
                 if self.sendDevice.device.inWaiting() > 0:
                     try:
-                        line_se = self.sendDevice.device.inWaiting() > 0
-                        line_sd = ine.decode('utf-8')
+                        line = self.sendDevice.device.inWaiting() > 0
+                        line = line.decode('utf-8')
                     except Exception as e:
                         print(e)
                         continue
-                        print(line_sd)
+                        print(line)
                 time.sleep(2)
                 #while self.sendDevice.device.inWaiting() == 0:
                 #    time.sleep(1)
