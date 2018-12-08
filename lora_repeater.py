@@ -45,6 +45,7 @@ class LoraRepeaterClass:
                     continue
                 print(line)
                 self.sendDevice.cmd_lora(line)
+                time.sleep(4)
                 if self.sendDevice.device.inWaiting() > 0:
                     try:
                         line = self.sendDevice.device.inWaiting() > 0
@@ -53,7 +54,6 @@ class LoraRepeaterClass:
                         print(e)
                         continue
                         print(line)
-                time.sleep(2)
                 #while self.sendDevice.device.inWaiting() == 0:
                 #    time.sleep(1)
 
