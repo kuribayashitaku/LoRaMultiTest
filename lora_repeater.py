@@ -45,7 +45,7 @@ class LoraRepeaterClass:
                     continue
                 print(line)
                 self.sendDevice.cmd_lora(line)
-                while self.sendDevice.device.inWaiting() > 0:
+                if self.sendDevice.device.inWaiting() > 0:
                     try:
                         line = self.sendDevice.device.inWaiting() > 0
                         line = ine.decode('utf-8')
@@ -56,14 +56,6 @@ class LoraRepeaterClass:
                 time.sleep(2)
                 #while self.sendDevice.device.inWaiting() == 0:
                 #    time.sleep(1)
-                    while self.sendDevice.device.inWaiting() > 0:
-                        try:
-                            line = self.sendDevice.device.inWaiting() > 0
-                            line = ine.decode('utf-8')
-                        except Exception as e:
-                            print(e)
-                            continue
-                            print(line)
 
                 #def lora_repeater_send():
                     #while True:
