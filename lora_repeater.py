@@ -46,6 +46,7 @@ class LoraRepeaterClass:
                 print(line)
                 print('<--SEND--[' + line + ']')
                 self.sendDevice.cmd_lora(line)
+                time.sleep(5)
                 #while self.sendDevice.device.inWaiting() == 0:
                 #    time.sleep(1)
                     #while self.sendDevice.device.inWaiting() > 0:
