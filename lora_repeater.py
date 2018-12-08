@@ -44,22 +44,22 @@ class LoraRepeaterClass:
                     print(e)
                     continue
                 print(line)
+                print('<--SEND--[' + line + ']')
+                seld.sendDevice.cmd_lora(line)
+                while self.sendDevice.device.inWaiting() == 0:
+                    time.sleep(1)
+                    while self.sendDevice.device.inWaiting() > 0:
+                        try:
+                            line = self.sendDevice.device.inWaiting() > 0
+                            line = ine.decode('utf-8')
+                        except Exception as e:
+                            print(e)
+                            continue
+                            print(line)
 
-                def lora_repeater_send():
-                    while True:
+                #def lora_repeater_send():
+                    #while True:
                         #panid = input('送信先PANID')
                         #addid = input('送信先アドレス')
                         #data = self.sendDevice.device.inWating() > 0
-                        print('<--SEND--[' + line ']')
-                        seld.sendDevice.cmd_lora(line)
-                        while self.sendDevice.device.inWaiting() == 0:
-                            time.sleep(1)
-                            while self.sendDevice.device.inWaiting() > 0:
-                                try:
-                                    line = self.sendDevice.device.inWaiting() > 0
-                                    line = ine.decode('utf-8')
-                                except Exception as e:
-                                    print(e)
-                                    continue
-                                    print(line)
-                lora_repeater_send()
+                        
