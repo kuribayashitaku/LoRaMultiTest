@@ -45,13 +45,13 @@ class LoraRepeaterClass:
                     continue
                 print(line)
 
-                def lora_repeater_send(self):
+                def lora_repeater_send():
                     while True:
-                        panid = input('送信先PANID')
-                        addid = input('送信先アドレス')
-                        data = self.sendDevice.device.inWating() > 0
-                        print('<--SEND--[' + panid + addid + data + ']')
-                        seld.sendDevice.cmd_lora(pandid + addid + data)
+                        #panid = input('送信先PANID')
+                        #addid = input('送信先アドレス')
+                        #data = self.sendDevice.device.inWating() > 0
+                        print('<--SEND--[' + line ']')
+                        seld.sendDevice.cmd_lora(line)
                         while self.sendDevice.device.inWaiting() == 0:
                             time.sleep(1)
                             while self.sendDevice.device.inWaiting() > 0:
