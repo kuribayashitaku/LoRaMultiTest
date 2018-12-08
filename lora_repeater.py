@@ -44,7 +44,7 @@ class LoraRepeaterClass:
                     print(e)
                     continue
                 print(line)
-        lora_repeater_send()
+                lora_repeater_send()
 
 
 
