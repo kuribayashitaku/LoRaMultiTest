@@ -45,7 +45,7 @@ class LoraRepeaterClass:
                     continue
                 print(line)
                 print('<--SEND--[' + line + ']')
-                seld.sendDevice.cmd_lora(line)
+                self.sendDevice.cmd_lora(line)
                 while self.sendDevice.device.inWaiting() == 0:
                     time.sleep(1)
                     while self.sendDevice.device.inWaiting() > 0:
@@ -62,4 +62,3 @@ class LoraRepeaterClass:
                         #panid = input('送信先PANID')
                         #addid = input('送信先アドレス')
                         #data = self.sendDevice.device.inWating() > 0
-                        
