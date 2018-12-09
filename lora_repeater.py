@@ -48,7 +48,7 @@ class LoraRepeaterClass:
                 time.sleep(4)
                 if self.sendDevice.device.inWaiting() > 0:
                     try:
-                        line_sd = self.sendDevice.device.readline() > 0
+                        line_sd = self.sendDevice.device.readline()
                         line_sd = line.decode('utf-8')
                         print("----SEND----[" + line_sd + "]")
                     except Exception as e:
