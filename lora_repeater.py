@@ -44,8 +44,7 @@ class LoraRepeaterClass:
                     print(e)
                     continue
                 print(line)
-                print(type(line))
-                self.sendDevice.cmd_lora(line)
+                self.sendDevice.cmd_lora(line.encode('utf-8'))
                 time.sleep(4)
                 if self.sendDevice.device.inWaiting() > 0:
                     try:
