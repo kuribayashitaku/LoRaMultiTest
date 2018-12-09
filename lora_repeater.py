@@ -14,7 +14,7 @@ class LoraRepeaterClass:
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         if self.set_flag == 'on':
-            command = ['b', 'c', 'd', 'e', 'f', 'g']
+            command = ['b', 'c', 'd', 'e', 'f', 'g' 'o']
             for cmd, conf in zip(command, self.config):
                 self.sendDevice.cmd_lora(cmd)
                 time.sleep(0.1)

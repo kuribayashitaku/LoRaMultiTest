@@ -29,7 +29,7 @@ def main(argc, argv):
         panid = input('panID  :')
         ownid = input('ownID  :')
         dstid = input('dstID  :')
-        rcvid = input('decvid 1 or 2:')
+        rcvid = input('recvid 1 or 2:')
         config = [bw, sf, channel, panid, ownid, dstid, rcvid]
 
     if argv[1] == 'send':
