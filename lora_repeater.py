@@ -43,18 +43,18 @@ class LoraRepeaterClass:
                 except Exception as e:
                     print(e)
                     continue
-                print(line)
-                self.sendDevice.cmd_lora(line.encode('utf-8'))
+                print("----recv :" + line)
+                self.sendDevice.cmd_lora(line)
+                print("----SEND----[" + line + "]")
                 time.sleep(4)
-                if self.sendDevice.device.inWaiting() > 0:
-                    try:
-                        line_sd = self.sendDevice.device.readline()
-                        print(type(line_sd))
-                        line_sd = line.decode('utf-8')
-                        print("----SEND----[" + line_sd + "]")
-                    except Exception as e:
-                        print(e)
-                        continue
+                #if self.sendDevice.device.inWaiting() > 0:
+                #    try:
+                #        line_sd = self.sendDevice.device.readline()
+                #        print(type(line_sd))
+                #        line_sd = line.decode('utf-8')
+                #    except Exception as e:
+                #        print(e)
+                #        continue
                 #while self.sendDevice.device.inWaiting() == 0:
                 #    time.sleep(1)
 
