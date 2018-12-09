@@ -40,13 +40,11 @@ class LoraRepeaterClass:
                 try:
                     line = self.sendDevice.device.readline()
                     line = line.decode('utf-8')
+                    self.sendDevice.cmd_lora(line)
                 except Exception as e:
                     print(e)
                     continue
-                print("----recv :" + line)
-                self.sendDevice.cmd_lora(line)
-                print("----SEND----[" + line + "]")
-                time.sleep(4)
+                print(line)
                 #if self.sendDevice.device.inWaiting() > 0:
                 #    try:
                 #        line_sd = self.sendDevice.device.readline()
