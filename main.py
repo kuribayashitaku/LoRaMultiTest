@@ -11,7 +11,7 @@ def main(argc, argv):
     set_flag = None
     config = []
     if argc < 3:
-        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))        
+        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
         sys.exit()
     if argv[1] != 'send' and argv[1] != 'recv' and argv[2] != 'set' and argv[2] != 'unset':
         print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
@@ -25,7 +25,7 @@ def main(argc, argv):
         panid = input('panID  :')
         ownid = input('ownID  :')
         dstid = input('dstID  :')
-        rcvid = input('recvid 1 or 2:')
+        #rcvid = input('recvid 1 or 2:')
         config = [bw, sf, channel, panid, ownid, dstid, rcvid]
 
     if argv[1] == 'send':
