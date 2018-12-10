@@ -26,7 +26,7 @@ def main(argc, argv):
         ownid = input('ownID  :')
         dstid = input('dstID  :')
         #rcvid = input('recvid 1 or 2:')
-        config = [bw, sf, channel, panid, ownid, dstid, rcvid]
+        config = [bw, sf, channel, panid, ownid, dstid]
 
     if argv[1] == 'send':
         lr_send = lora_send.LoraSendClass(lora_device, set_flag, config)
