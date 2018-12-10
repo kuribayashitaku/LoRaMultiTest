@@ -15,7 +15,7 @@ class LoraSendClass:
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         if self.set_flag == 'on':
-            command = ['b', 'c', 'd', 'e', 'f', 'g']
+            command = ['b', 'c', 'd', 'e', 'f', 'g', 'o']
             for cmd, conf in zip(command, self.config):
                 self.sendDevice.cmd_lora(cmd)
                 time.sleep(0.1)
@@ -33,7 +33,7 @@ class LoraSendClass:
         self.sendDevice.cmd_lora('p')
         time.sleep(0.1)
         self.sendDevice.cmd_lora('1')
-        time.sleep(0.1)            
+        time.sleep(0.1)
         self.sendDevice.cmd_lora('y')
         time.sleep(0.1)
         self.sendDevice.cmd_lora('z')
