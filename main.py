@@ -11,14 +11,10 @@ def main(argc, argv):
     set_flag = None
     config = []
     if argc < 3:
-        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
-        print('       [send | repeter | recv] ... mode select')
-        print('       [set | unset] ... mode select')
+        print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))        
         sys.exit()
     if argv[1] != 'send' and argv[1] != 'recv' and argv[2] != 'set' and argv[2] != 'unset':
         print('Usage: python %s [send | repeater | recv] [set | unset]' % (argv[0]))
-        print('       [send | repeter | recv] ... mode select')
-        print('       [set | unset] ... mode select')
         sys.exit()
 
     if argv[2] == 'set':
