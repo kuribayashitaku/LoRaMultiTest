@@ -41,23 +41,16 @@ class LoraSendClass:
     """ES920LRデータ送信メソッド"""
     def lora_send(self):
         while True:
-            panid = input('送信先PANID　；')
-            addid = input('送信先アドレス；')
             data = input('送信データ　　：')
-            print('<-- SEND -- [' + panid + addid + data + ']')
-            self.sendDevice.cmd_lora(panid + addid + data)
+            print('<-- SEND -- [' + data + ']')
+            self.sendDevice.cmd_lora(data)
             if data.find('exit') >= 0:
                 sys.exit()
-            while self.sendDevice.device.inWaiting() == 0:
-                time.sleep(1)
             while self.sendDevice.device.inWaiting() > 0:
                 line = self.sendDevice.device.readline()
                 line = line.decode('utf-8')
                 print(line)
                 if line.find('Ack Timeout') >= 0:
-                    self.sendDevice.cmd_lora(data)
                     time.sleep(2)
                 elif line.find('send data failed') >= 0:
                     time.sleep(4)
-                    self.sendDevice.cmd_lora(data)
-                    time.sleep(2)
