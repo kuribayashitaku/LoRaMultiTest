@@ -49,7 +49,8 @@ class LoraRepeaterClass:
                     continue
                 print(line)
                 time.sleep(0.1)
-                self.sendDevice.cmd_lora(line)
+                 if line.find("RSSI") >= 0:
+                    self.sendDevice.cmd_lora(line)
                 #if self.sendDevice.device.inWaiting() > 0:
                 #    try:
                 #        line_sd = self.sendDevice.device.readline()
