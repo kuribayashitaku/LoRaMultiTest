@@ -29,6 +29,10 @@ class LoraRepeaterClass:
             time.sleep(0.1)
             self.sendDevice.cmd_lora('0001')
             time.sleep(0.1)
+        self.sendDevice.cmd_lora('p')
+        time.sleep(0.1)
+        self.sendDevice.cmd_lora('1')
+        time.sleep(0.1)    
         self.sendDevice.cmd_lora('y')
         time.sleep(0.1)
         self.sendDevice.cmd_lora('z')
@@ -44,6 +48,7 @@ class LoraRepeaterClass:
                     print(e)
                     continue
                 print(line)
+                if line
                 self.sendDevice.cmd_lora(line)
                 #if self.sendDevice.device.inWaiting() > 0:
                 #    try:
