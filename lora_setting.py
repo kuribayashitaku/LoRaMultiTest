@@ -19,3 +19,14 @@ class LoraSettingClass:
             return
         self.cmd = '{0}\r\n'.format(cmd)
         self.device.write(self.cmd.encode())
+
+
+     def reset_lora(self):
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(self.reset_pin, GPIO.OUT)
+        GPIO.output(self.reset_pin, GPIO.HIGH)
+        time.sleep(0.1)
+        GPIO.output(self.reset_pin, GPIO.LOW)
+        time.sleep(0.1)
+        GPIO.cleanup()
+        time.sleep(1)    
