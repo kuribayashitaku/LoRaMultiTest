@@ -19,9 +19,9 @@ class LoraSendClass:
                 if line.find(b'Select'):
                     line = line.decode("utf-8")
                     print(line)
-                except Exception as e:
-                    print(e)
-                    continue
+            except Exception as e:
+                print(e)
+                continue
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         if self.set_flag == 'on':
