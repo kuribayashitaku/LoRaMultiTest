@@ -18,7 +18,7 @@ class LoraRepeaterClass:
                 if line.find(b'Select'):
                     line = line.decode("utf-8")
                     print(line)
-                except Exception as e:
+            except Exception as e:
                     print(e)
                     continue
         self.sendDevice.cmd_lora('1')
