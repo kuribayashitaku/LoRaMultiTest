@@ -61,6 +61,8 @@ class LoraRepeaterClass:
                 if line.find("RSSI") >= 0:
                     self.sendDevice.cmd_lora(line)
                     log = line
+                    with open('log.csv', 'w') as f:
+                        f.write(log)
                     time.sleep(0.1)
 
                 #if self.sendDevice.device.inWaiting() > 0:
