@@ -12,6 +12,16 @@ class LoraSendClass:
         self.sendDevice = serial_device
         self.set_flag = set_flag
         self.config = config
+        self.sendDevice.reset_lora()
+        while self.sendDevice.device.inWaiting() > 0:
+            try:
+                line = self.sendDevice.device.readline()
+                if line.find(b'Select'):
+                    line = line.decode("utf-8")
+                    print(line)
+                except Exception as e:
+                    print(e)
+                    continue
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         if self.set_flag == 'on':
