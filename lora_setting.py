@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import serial
 import RPi.GPIO as GPIO
+import time
 
 # LoRa設定用クラス
 class LoraSettingClass:
