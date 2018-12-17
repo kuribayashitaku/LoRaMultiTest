@@ -12,6 +12,7 @@ class LoraRepeaterClass:
         self.set_flag = set_flag
         self.config = config
         self.sendDevice.reset_lora()
+        time.sleep(1)
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         if self.set_flag == 'on':
