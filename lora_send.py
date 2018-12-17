@@ -48,8 +48,12 @@ class LoraSendClass:
             if data.find('exit') >= 0:
                 sys.exit()
             while self.sendDevice.device.inWaiting() > 0:
-                line = self.sendDevice.device.readline()
-                line = line.decode('utf-8')
+                try:
+                    line = self.sendDevice.device.readline()
+                    line = line.decode('utf-8',)
+                except Exception as e:
+                    print(e)
+                    continue
                 print(line)
                 if line.find('Ack Timeout') >= 0:
                     time.sleep(2)

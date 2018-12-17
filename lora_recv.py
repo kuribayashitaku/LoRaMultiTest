@@ -12,7 +12,7 @@ class LoraRecvClass:
         self.sendDevice = serial_device
         self.set_flag = set_flag
         self.config = config
-        self.sendDevice.reset_lora()    
+        self.sendDevice.reset_lora()
         self.sendDevice.cmd_lora('1')
         time.sleep(0.1)
         self.sendDevice.cmd_lora('a')
@@ -47,8 +47,12 @@ class LoraRecvClass:
     def lora_recv(self):
         while True:
             if self.sendDevice.device.inWaiting() > 0:
-                line = self.sendDevice.device.readline()
-                line = line.decode('utf-8')
+                try:
+                    line = self.sendDevice.device.readline()
+                    line = line.decode('utf-8')
+                except Exception as e:
+                    print(e)
+                    continue    
                 print(line)
                 if line.find('Ack Timeout') >= 0:
                     continue
