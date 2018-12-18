@@ -44,14 +44,14 @@ class LoraSendClass:
     def lora_send(self):
         while True:
             data = input('送信データ　　：')
-            print('<-- SEND -- [' + data + ']')
+            print('<-- SEND -- >[' + data + ']')
             self.sendDevice.cmd_lora(data)
             if data.find('exit') >= 0:
                 sys.exit()
             while self.sendDevice.device.inWaiting() > 0:
                 try:
                     line = self.sendDevice.device.readline()
-                    line = line.decode('utf-8',)
+                    line = line.decode('utf-8')
                 except Exception as e:
                     print(e)
                     continue

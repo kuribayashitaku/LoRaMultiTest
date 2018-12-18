@@ -57,9 +57,9 @@ class LoraRecvClass:
                 print(line)
                 if line.find("RSSI") >= 0:
                     log = line
-                    with open('log_recv.csv', 'a') as f
+                    with open('log_recv.csv', 'a') as f:
                         f.write(log)
-                time.sleep(0.5)        
+                time.sleep(0.5)
                 if line.find('Ack Timeout') >= 0:
                     continue
                 if line.find('exit') >= 0:
