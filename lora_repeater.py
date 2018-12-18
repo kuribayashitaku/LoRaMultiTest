@@ -50,7 +50,7 @@ class LoraRepeaterClass:
                     print(e)
                     continue
                 print(line)
-                if line.find("RSSI") >= 0 and line.find("information") >= -1:
+                if line.find("RSSI") >= 0 and line.find("information") == -1:
                     self.sendDevice.cmd_lora(line)
                     log = line
                     with open('log.csv', 'w') as f:
