@@ -59,7 +59,7 @@ class LoraRecvClass:
                     log = line
                     with open('log_recv.csv', 'a') as f:
                         f.write(log)
-                time.sleep(0.5)
+                time.sleep(0.1)
                 if line.find('Ack Timeout') >= 0:
                     continue
                 if line.find('exit') >= 0:
