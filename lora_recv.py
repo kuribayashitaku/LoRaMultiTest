@@ -55,7 +55,7 @@ class LoraRecvClass:
                     print(e)
                     continue
                 print(line)
-                if line.find("RSSI") >= 0:
+                if line.find("RSSI") >= 0 and line.find("information") >= -1:
                     log = line
                     with open('log_recv.csv', 'a') as f:
                         f.write(log)
